@@ -1,0 +1,529 @@
+:root {
+    color-scheme: light only;
+    --primary-color: #9AECDB;
+    --secondary-color: #0a3d62;
+    --text-color: #2d3436;
+    --card-bg: #ffffff;
+    --terminal-bg: #2c001e;
+    --terminal-text: #fdcb6e;
+    --button-primary: #3498db;
+    --button-danger: #e74c3c;
+    --transition-speed: 0.3s;
+}
+
+/* Dark theme variables */
+.dark-theme {
+    --primary-color: #2d3436;
+    --secondary-color: #74b9ff;
+    --text-color: #ecf0f1;
+    --card-bg: #2c3e50;
+    --terminal-bg: #1e272e;
+    --terminal-text: #55efc4;
+    --button-primary: #0984e3;
+    --button-danger: #d63031;
+    --dropdown-bg: #34495e;
+    --dropdown-text: #ffffff;
+    --dropdown-option-bg: #2c3e50;
+    --dropdown-option-text: #ecf0f1;
+    --dropdown-selected-bg: #0984e3;
+}
+  
+html, body {
+    min-height: 100vh;
+    font-family: 'Fira Code', monospace;
+    background: var(--primary-color);
+    padding-bottom: 20px;
+    transition: background-color var(--transition-speed) ease;
+}
+  
+body {
+    font-family: 'Fira Code', monospace;
+    background: var(--primary-color);
+    min-height: 100vh;
+    font-weight: 600;
+    transition: all var(--transition-speed) ease;
+}
+  
+p {
+    font-family: 'Fira Code', monospace;
+    letter-spacing: .03em;
+    line-height: 20px;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+    font-size: 16px;
+    color: var(--text-color);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-font-smoothing: antialiased !important;
+    text-rendering: optimizelegibility !important;
+    transition: color var(--transition-speed) ease;
+}
+  
+pre {
+    font-family: monospace;
+    font-size: 14px;
+    color: var(--terminal-text);
+    text-shadow: 0 0 3px var(--terminal-text);
+    line-height: 1.5em;
+    background: var(--terminal-bg);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-font-smoothing: antialiased !important;
+    text-rendering: optimizelegibility !important;
+    border-radius: 0 0 8px 8px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all var(--transition-speed) ease;
+}
+  
+pre code {
+    padding: 0;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+}
+  
+button {
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+  
+input, select {
+    font-family: 'Fira Code', monospace;
+    transition: all 0.2s ease;
+}
+
+.button {
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.button.is-link {
+    background-color: var(--button-primary);
+}
+
+.button.is-danger {
+    background-color: var(--button-danger);
+}
+
+.input, .select select {
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+.input:focus, .select select:focus {
+    box-shadow: 0 0 0 2px var(--secondary-color);
+}
+
+/* Enhanced dropdown styling */
+.select select {
+    font-weight: 600;
+    color: var(--text-color);
+    height: 2.8em;
+}
+
+.select:not(.is-multiple):not(.is-loading)::after {
+    border-width: 3px;
+    right: 1.125em;
+    z-index: 5;
+}
+
+/* Active dropdown option styling */
+.select select option {
+    font-weight: 600;
+    padding: 10px;
+    font-size: 1em;
+}
+
+/* Custom dropdown styling for art type */
+#artType {
+    background-color: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+    font-size: 1.1em;
+}
+
+#artType option {
+    background-color: white;
+    color: var(--text-color);
+    padding: 15px;
+    font-size: 1.1em;
+}
+
+/* Active dropdown styling */
+.select select option:checked,
+.select select option:hover {
+    background-color: var(--secondary-color) !important;
+    color: white !important;
+}
+
+#terminal__bar {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    align-items: center;
+    padding: 0 8px;
+    background: linear-gradient(#504b45 0%,#3c3b37 100%);
+    border-radius: 8px 8px 0 0;
+}
+  
+#terminal__barimg {
+    display: flex;
+    width: 313%;
+    height: 30px;
+    align-items: center;
+    padding: 0 8px;
+    background: linear-gradient(#504b45 0%,#3c3b37 100%);
+}
+  
+#bar__buttons {
+    display: flex;
+    align-items: center;
+}
+  
+.bar__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-right: 5px;
+    font-size: 8px;
+    height: 12px;
+    width: 12px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 100%;
+    background: linear-gradient(#7d7871 0%, #595953 100%);
+    text-shadow: 0px 1px 0px rgba(255,255,255,0.2);
+    box-shadow: 0px 0px 1px 0px #41403A, 0px 1px 1px 0px #474642;
+}
+  
+.bar__button:focus {
+    outline: none;
+}
+  
+#bar__button--exit {
+    background: linear-gradient(#f37458 0%, #de4c12 100%);
+    background-clip: padding-box;
+}
+  
+.fakeButtons {
+    height: 14px;
+    width: 14px;
+    border-radius: 100%;
+    border: 1px solid #000;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-right: 3px;
+    top: 1px;
+    left: 7px;
+    background-color: #ff3b47;
+    border-color: #9d252b;
+    display: inline-block;
+}
+  
+.fakeMinimize {
+    left: 11px;
+    background-color: #ffc100;
+    border-color: #9d802c;
+}
+  
+.fakeZoom {
+    left: 16px;
+    background-color: #00d742;
+    border-color: #049931;
+}
+  
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+  
+.modal-content {
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    animation: slideIn 0.3s ease;
+}
+  
+.modal-background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+  
+.card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    margin-top: 20px;
+    transition: all var(--transition-speed) ease;
+}
+
+.card .title {
+    color: var(--text-color);
+    transition: color var(--transition-speed) ease;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.card .title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--secondary-color);
+    transition: all var(--transition-speed) ease;
+}
+
+.label {
+    color: var(--text-color);
+    transition: color var(--transition-speed) ease;
+}
+
+/* Theme toggle switch */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 24px;
+    position: relative;
+    width: 50px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    background-color: white;
+    bottom: 4px;
+    content: "";
+    height: 16px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 16px;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--secondary-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.theme-switch-wrapper span {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+/* Animations for elements */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+#asciiOutput {
+    transition: all var(--transition-speed) ease;
+}
+
+/* Make ASCII output look better */
+#asciiOutput pre {
+    overflow-x: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card {
+        padding: 15px;
+    }
+    
+    pre {
+        font-size: 12px;
+    }
+}  
+
+/* Enhanced notification modal styling */
+#notificationModal .box {
+    background-color: #ffffff;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    border-left: 5px solid var(--secondary-color);
+}
+
+#notificationModal .notification {
+    background-color: #fff3cd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#notificationModal .icon {
+    margin-bottom: 15px;
+    color: #ff9800;
+}
+
+#notificationModal p {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0;
+    line-height: 1.4;
+}
+
+#notificationModal .button {
+    min-width: 120px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* Add focused state for the dropdown */
+.select select.is-focused,
+.select select:focus,
+.select:hover select {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.125em rgba(10, 61, 98, 0.25);
+}
+
+/* Custom styling for dropdown options in all browsers */
+.select select option:hover,
+.select select option:focus,
+.select select option:active {
+    background: var(--secondary-color) !important;
+    color: white !important;
+}
+
+/* Dark mode specific dropdown styling */
+.dark-theme #fontSelect {
+    background-color: var(--dropdown-bg);
+    color: var(--dropdown-text);
+    border-color: var(--secondary-color);
+}
+
+.dark-theme #fontSelect option {
+    background-color: var(--dropdown-option-bg);
+    color: var(--dropdown-option-text);
+}
+
+.dark-theme .select select option:checked,
+.dark-theme .select select option:hover,
+.dark-theme .select select option:focus {
+    background-color: var(--dropdown-selected-bg) !important;
+    color: white !important;
+}
+
+/* Improve dropdown visibility in dark mode */
+.dark-theme .select:not(.is-multiple):not(.is-loading)::after {
+    border-color: var(--dropdown-text);
+}
+
+/* Adding light background to option menu in dark mode */
+.dark-theme .select select option {
+    background-color: var(--dropdown-option-bg);
+    color: var(--dropdown-option-text);
+    text-shadow: none;
+}
+
+/* Add higher contrast for selected options */
+.dark-theme .select select option:checked {
+    background-color: var(--dropdown-selected-bg) !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+/* Improve select dropdown visibility in dark mode */
+.dark-theme select {
+    background-color: var(--dropdown-bg);
+    color: var(--dropdown-text);
+}
+
+/* Fix dropdown menu appearance */
+select option {
+    padding: 10px;
+    line-height: 1.5;
+}
+
+/* Ensure high contrast for dropdown menu */
+.dark-theme select option {
+    background-color: var(--dropdown-option-bg) !important;
+    color: var(--dropdown-text) !important;
+}
+
+/* Fix selected option text in dark mode */
+.dark-theme select option:checked {
+    font-weight: bold;
+    background-color: var(--dropdown-selected-bg) !important;
+    color: white !important;
+}
+
+/* Special highlight for current option */
+.dark-theme option:hover,
+.dark-theme option:focus {
+    background-color: var(--dropdown-selected-bg) !important;
+}  
